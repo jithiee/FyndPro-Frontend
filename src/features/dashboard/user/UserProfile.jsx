@@ -23,8 +23,11 @@ L.Icon.Default.mergeOptions({
 const LocationSelector = ({ setLat, setLng }) => {
   useMapEvents({
     click(e) {
-      setLat(e.latlng.lat);
-      setLng(e.latlng.lng);
+      const lat = Number(e.latlng.lat.toFixed(6));
+      const lng = Number(e.latlng.lng.toFixed(6));
+
+      setLat(lat);
+      setLng(lng);
     },
   });
   return null;
@@ -89,13 +92,15 @@ const UserProfile = () => {
 
   // SAVE PROFILE
   const handleSave = () => {
+    const fixedLat = Number(lat).toFixed(6);
+    const fixedLng = Number(lng).toFixed(6);
+
     const data = new FormData();
     data.append("full_name", formData.full_name);
     data.append("phone", formData.phone);
     data.append("location", formData.location);
-    data.append("latitude", lat);
-    data.append("longitude", lng);
-
+    data.append("latitude", fixedLat);
+    data.append("longitude", fixedLng);
     if (selectedImage) {
       data.append("profile_image", selectedImage);
     }

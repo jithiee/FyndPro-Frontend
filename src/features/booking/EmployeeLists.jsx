@@ -200,9 +200,8 @@ const EmployeeLists = () => {
                       <div className={`p-1 rounded-full border-2 ${isAvailable ? 'border-emerald-400' : 'border-gray-200'}`}>
                         <img
                           src={
-                            emp.profile_image
-                              ? `${BASE_URL}${emp.profile_image}`
-                              : "https://randomuser.me/api/portraits/men/75.jpg"
+                           `${BASE_URL}${emp.profile_image}`
+                              
                           }
                           alt={emp.full_name}
                           className="w-24 h-24 rounded-full object-cover cursor-pointer group-hover:opacity-90 transition-opacity"
