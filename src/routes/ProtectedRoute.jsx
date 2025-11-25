@@ -6,7 +6,9 @@ export default function ProtectedRoute({ children, allowedRoles }) {
   const user = storedUser ? JSON.parse(storedUser) : null;
 
   // Not logged in
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
 
   // Role not allowed
   if (allowedRoles && !allowedRoles.includes(user.role)) {
