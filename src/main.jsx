@@ -42,7 +42,7 @@ const PaymentOptions = React.lazy(() =>
 const UserDash = React.lazy(() =>
   import("./features/dashboard/user/UserDash.jsx")
 );
-const About = React.lazy(() => import("./features/about/about.jsx"));
+const About = React.lazy(() => import("./features/about/About.jsx"));
 const PostView = React.lazy(() => import("./features/posts/PostView.jsx"));
 
 // LOADER COMPONENT
@@ -137,7 +137,7 @@ const router = createBrowserRouter(
       <Route
         path="/employeedashboard/:employeeId"
         element={
-          <ProtectedRoute allowedRoles={["employee"]}>
+          <ProtectedRoute allowedRoles={ "client"}>
             <Suspense fallback={<PageLoader />}>
               <PostsProfileView />
             </Suspense>
@@ -149,7 +149,7 @@ const router = createBrowserRouter(
       <Route
         path="/bookingview/:employeeId"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={ "client"}>
             <Suspense fallback={<PageLoader />}>
               <BookingForm />
             </Suspense>
@@ -185,7 +185,7 @@ const router = createBrowserRouter(
       <Route
         path="/employeelists"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={ "client"}>
             <Suspense fallback={<PageLoader />}>
               <EmployeeLists />
             </Suspense>

@@ -140,12 +140,18 @@ const EmployeeDashboard = () => {
                     {/* Client */}
                     <td className="p-4">
                       <div className="flex items-center">
-                        <div className="bg-gray-200 text-gray-500 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                           <FaUserCircle size={24} />
-                        </div>
+                            <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border">
+                        <img
+                          src={booking.client_user.profile_image}
+                          alt={booking.client_name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => e.target.src = "/default-profile.png"}
+                        />
+                      </div>
                         <div>
-                          <p className="font-medium text-gray-900">{booking.client?.full_name || 'Client Name'}</p>
-                          <p className="text-xs text-gray-500">{booking.client?.email}</p>
+                          <p className="font-medium text-gray-900">{booking?.client_name}</p>
+                          <p className="text-xs text-gray-500">Email : {booking.client_user.email}</p>
+                          <p className="text-xs text-gray-500">Phone : {booking.client_user.phone}</p>
                         </div>
                       </div>
                     </td>
@@ -153,7 +159,7 @@ const EmployeeDashboard = () => {
                     {/* Job */}
                     <td className="p-4">
                       <p className="font-medium text-gray-800">{booking.job}</p>
-                      <p className="text-xs text-gray-500">${booking.amount || '0.00'}</p>
+              
                     </td>
 
                     {/* Date */}

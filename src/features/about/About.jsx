@@ -1,14 +1,8 @@
 import React from 'react';
 import { 
-  Zap, 
-  Globe, 
-  Users, 
-  ArrowUpRight, 
   ShieldCheck, 
-  Target,
   Wrench,
   Hammer,
-  Truck
 } from 'lucide-react';
 
 const About = () => {
@@ -113,7 +107,7 @@ const About = () => {
           <div className="relative">
              {/* Stylized Image Grid */}
              <div className="grid grid-cols-2 gap-4">
-               <img src="https://images.unsplash.com/photo-1581578731117-10d5214316de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" className="rounded-2xl w-full h-64 object-cover mt-12" alt="Mechanic" />
+               <img src="https://cbx-prod.b-cdn.net/COLOURBOX13756456.jpg?width=800&height=800&quality=70" className="rounded-2xl w-full h-64 object-cover mt-12" alt="Mechanic" />
                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" className="rounded-2xl w-full h-64 object-cover" alt="Plumber" />
                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" className="rounded-2xl w-full h-64 object-cover" alt="Trainer" />
                <div className="bg-blue-600 rounded-2xl w-full h-64 flex items-center justify-center text-white p-6 mt-[-3rem]">
@@ -188,14 +182,7 @@ const About = () => {
           <p className="text-slate-400 mb-10 max-w-xl mx-auto text-lg">
             From leaking taps to fitness goals, find the right expert in seconds.
           </p>
-          <div className="flex justify-center gap-4">
-             <button className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105">
-                Book a Service
-             </button>
-             <button className="bg-transparent border border-slate-700 hover:bg-slate-800 text-white px-10 py-4 rounded-full font-bold text-lg transition-all">
-                Join as a Pro
-             </button>
-          </div>
+   
           
           <div className="mt-20 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
       

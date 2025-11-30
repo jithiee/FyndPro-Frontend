@@ -190,12 +190,17 @@ const BookingStatic = () => {
                     <div>
                       {/* Client Header */}
                       <div className="flex items-start gap-4 mb-6">
-                        <div className="w-14 h-14 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl shrink-0">
-                          <FaUserCircle />
-                        </div>
+                          <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border">
+                        <img
+                          src={item.client_user.profile_image}
+                          alt={item.client_name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => e.target.src = "/default-profile.png"}
+                        />
+                      </div>
                         <div>
                           <h3 className="text-lg font-bold text-slate-900">
-                            {item.client_user?.full_name || item.client_name || "Unknown Client"}
+                            {item.client_user?.full_name ||  "Unknown Client"}
                           </h3>
                           <div className="flex items-center gap-2 text-sm text-slate-500 mt-1">
                              <span className="bg-slate-100 px-2 py-0.5 rounded text-xs font-medium border border-slate-200">ID: #{item.book_id}</span>
@@ -210,6 +215,10 @@ const BookingStatic = () => {
                         <InfoRow icon={FaCalendarDay} label="Date" value={date} />
                         <InfoRow icon={FaClock} label="Time" value={time} />
                       </div>
+                    <p className="text-gray-700 text-sm leading-relaxed bg-gray-50 border border-gray-200 p-3 rounded-lg">
+                              {item?.job  || "No additional details provided."}
+                      </p>
+
                     </div>
 
                     {/* Action Footer */}

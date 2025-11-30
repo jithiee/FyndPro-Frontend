@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const HeaderText = () => {
 
     const user = localStorage.getItem('accessToken')
-
+    
+    const userData = JSON.parse(localStorage.getItem("user") || "{}");
+            
         
     
     return (
@@ -36,7 +38,7 @@ const HeaderText = () => {
                     Join for free
                 </button>
                 </Link> ) : (
-                <Link to='userdashboard' >
+                <Link to={userData.role == "client" ? 'userdashboard' : 'employeedashboard' } >
                 <button className="flex items-center justify-center cursor-pointer bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300 hover:bg-gray-800 focus:outline-none">
                    Go to Account
                 </button>
@@ -45,21 +47,11 @@ const HeaderText = () => {
 
                 } 
   
-{
-  !user ? (
-    <Link to="login" className="group">
-       <button className="flex items-center justify-center cursor-pointer bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300 hover:bg-gray-800 focus:outline-none">
-                    Join for free
-      </button>
-    </Link>
-  ) : (
- ""
-  )
-}
+
 
                 {/* Secondary Button with Icon */}
-
-                <Link to='/employeelists' >
+                {
+                    userData.role === "client" ? (     <Link to='/employeelists' >
                 <button className="flex items-center cursor-pointer gap-2 border border-gray-300 text-black font-semibold py-3 px-6 rounded-full transition duration-300 hover:bg-gray-100 focus:outline-none">
                     Booking Here
                     <span className="flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full">
@@ -75,7 +67,12 @@ const HeaderText = () => {
                         </svg>
                     </span>
                 </button>
-                </Link>
+                </Link>):(
+                    ""
+                )
+                }
+
+           
 
 
 
