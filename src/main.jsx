@@ -22,6 +22,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 // ROUTE GUARDS
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import PublicRoute from "./routes/PublicRoute.jsx";
+import Admin from "./features/admin/Admin.jsx";
 
 // LAZY COMPONENTS
 const EmployeeDash = React.lazy(() =>
@@ -192,6 +193,18 @@ const router = createBrowserRouter(
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/admin"
+        element={
+          // <ProtectedRoute allowedRoles={ "admin"}>
+            <Suspense fallback={<PageLoader />}>
+              <Admin />
+            </Suspense>
+          // </ProtectedRoute>
+        }
+      />
+
+
     </Route>
   )
 );

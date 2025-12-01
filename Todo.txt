@@ -2,3 +2,11 @@
 npm install react-leaflet leaflet
 
 (react-leaflet and leaflet let you add an interactive map in React, so users can click on the map to pick their location (latitude and longitude) — all for free, without needing a Google Maps API key)
+
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-data-grid recharts lucide-react
+
+
+
+
+
+
