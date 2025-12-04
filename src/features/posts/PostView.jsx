@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const PostView = () => {
-  // Mock data for posts
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -99,7 +98,7 @@ const PostView = () => {
     }));
   };
 
-  // Handle save toggle
+  // toggle
   const handleSave = (postId) => {
     setPosts(posts.map(post => {
       if (post.id === postId) {
@@ -112,7 +111,7 @@ const PostView = () => {
     }));
   };
 
-  // Toggle comments visibility
+  // Toggle comments 
   const toggleComments = (postId) => {
     setShowComments({
       ...showComments,
@@ -120,7 +119,7 @@ const PostView = () => {
     });
   };
 
-  // Handle comment input change
+  // Handle comment 
   const handleCommentChange = (postId, value) => {
     setCommentInputs({
       ...commentInputs,
@@ -297,7 +296,7 @@ const PostView = () => {
               </button>
             </div>
 
-            {/* Comments Section - YouTube Style */}
+            {/* Comments Section  */}
             {showComments[post.id] && (
               <div className="mt-6">
                 <div className="mb-6">

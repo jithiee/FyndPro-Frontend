@@ -5,8 +5,6 @@ import { bookingCreatetionByUser } from "../booking/bookingSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Calendar, FileText, CheckCircle, Loader2, User, ShieldCheck, ArrowLeft } from "lucide-react";
-
-// ⭐ Animation
 import { motion } from "framer-motion";
 
 const BookingForm = ({ employee }) => {

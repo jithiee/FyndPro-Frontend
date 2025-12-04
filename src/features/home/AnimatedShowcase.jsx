@@ -26,7 +26,7 @@ const AnimatedShowcase = () => {
   const imageRefs = useRef([]);
 
   useEffect(() => {
-    // Initialize all elements as invisible and scaled down
+    // GSAP -------------
     gsap.set([...imageRefs.current], {
       opacity: 0,
       scale: 0.3
@@ -37,7 +37,6 @@ const AnimatedShowcase = () => {
       scale: 0.1
     });
 
-    // Create a master timeline for the pop-up effect
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -48,28 +47,27 @@ const AnimatedShowcase = () => {
       }
     });
 
-    // Animate all images first with staggered timing
     imageRefs.current.forEach((img, index) => {
       tl.to(img, {
         opacity: 1,
         scale: 1,
         duration: 0.8,
         ease: "back.out(2)",
-        delay: index * 0.15 // Increased stagger between images
+        delay: index * 0.15 
       });
     });
 
-    // Add significant delay before title appears (1 second after last image)
+    
     tl.to(centerContentRef.current, {
       opacity: 1,
       scale: 1,
       duration: 1.2,
       ease: "elastic.out(1, 0.3)",
-      delay: 1.0 // Full second delay after last image animation
+      delay: 1.0 
     }, ">");
 
-    // Floating animation for images (starts after all pop-ups complete)
-    const floatTL = gsap.timeline({ delay: 2.5 }); // Wait until everything is settled
+
+    const floatTL = gsap.timeline({ delay: 2.5 }); 
     imageRefs.current.forEach((el, i) => {
       floatTL.to(el, {
         y: "random(-30, 30)",
@@ -81,7 +79,7 @@ const AnimatedShowcase = () => {
       }, i * 0.1);
     });
 
-    // Number counting animation (starts well after title appears)
+
     textRef.current.forEach((el) => {
       const target = +el.dataset.target;
       gsap.fromTo(
@@ -93,7 +91,7 @@ const AnimatedShowcase = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 40%", // Starts much later in scroll
+            start: "top 40%", 
             end: "top 10%",
           },
           snap: { innerText: 1 },
@@ -110,7 +108,7 @@ const AnimatedShowcase = () => {
       ref={containerRef}
       className="relative w-full h-screen flex items-center justify-center bg-white overflow-hidden"
     >
-      {/* Floating Job Role Images */}
+  
       {jobImages.map((img, index) => (
         <img
           key={index}
@@ -121,7 +119,7 @@ const AnimatedShowcase = () => {
         />
       ))}
 
-      {/* Center Text Content - Will appear last with significant delay */}
+  
       <div ref={centerContentRef} className="z-10 text-center px-4 transform scale-10 opacity-0">
         <p className="text-gray-500 text-sm md:text-base mb-2">A growing workforce of</p>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">

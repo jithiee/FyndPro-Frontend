@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
-      {/* --- Hero: Service Focused --- */}
+
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
@@ -26,11 +26,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- Bento Grid Section --- */}
+    
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 h-auto md:h-[800px]">
           
-          {/* Cell 1: Main Visual - Trade Focused */}
+   
           <div className="md:col-span-2 md:row-span-2 relative rounded-[2rem] overflow-hidden group">
             <img 
               src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
@@ -45,7 +45,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Cell 2: Stat - Vetting */}
+          
           <div className="bg-slate-50 rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-slate-100 hover:border-blue-200 transition-colors duration-300 group">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900 group-hover:text-blue-600 transition-colors">
               <ShieldCheck size={24} strokeWidth={2} />
@@ -56,9 +56,9 @@ const About = () => {
             </div>
           </div>
 
-          {/* Cell 3: Categories */}
+         
           <div className="bg-slate-900 rounded-[2rem] p-8 md:p-10 flex flex-col justify-between text-white group relative overflow-hidden">
-             {/* Subtle Blue Glow */}
+           
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/30 blur-3xl rounded-full -mr-10 -mt-10 transition-opacity opacity-50 group-hover:opacity-100"></div>
             
             <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
@@ -175,7 +175,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- Footer Area / Final CTA --- */}
+
       <section className="bg-slate-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-8">Need a Pro? Book now.</h2>

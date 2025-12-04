@@ -56,7 +56,7 @@ const CreatePost = () => {
     dispatch(createEmployeePost(data));
   };
 
-  // Show success/error toast
+  //  success/error 
   useEffect(() => {
     if (error) {
       toast.error(error);

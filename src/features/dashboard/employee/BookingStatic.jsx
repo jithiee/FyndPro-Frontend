@@ -24,7 +24,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// --- Fix Leaflet Marker Icons ---
+
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -42,17 +42,17 @@ const BookingStatic = () => {
   );
   const [localBookings, setLocalBookings] = useState([]);
 
-  // Sync Redux -> Local
+
   useEffect(() => {
     setLocalBookings(Array.isArray(bookingsFromStore) ? bookingsFromStore : []);
   }, [bookingsFromStore]);
 
-  // Fetch on mount
+
   useEffect(() => {
     dispatch(fetchEmployeeBookings());
   }, [dispatch]);
 
-  // Formatters
+  // Date Formatters 
   const formatBookingDate = (isoDate) => {
     if (!isoDate) return { date: "—", time: "—" };
     const d = new Date(isoDate);
@@ -74,7 +74,7 @@ const BookingStatic = () => {
     const lat = parseFloat(item?.latitude);
     const lng = parseFloat(item?.longitude);
     if (!isNaN(lat) && !isNaN(lng)) return [lat, lng];
-    return [9.9312, 76.2673]; // Fallback
+    return [9.9312, 76.2673]; 
   };
 
   const normalizeStatus = (s) => (typeof s === "string" ? s.toLowerCase() : "");
@@ -96,7 +96,7 @@ const BookingStatic = () => {
   const handleStatusChange = async (book_id, statusToSet) => {
     const prevLocal = [...localBookings];
     
-    // Optimistic Update
+    
     setLocalBookings((prev) =>
       prev.map((b) => (b.book_id === book_id ? { ...b, status: statusToSet } : b))
     );
@@ -112,7 +112,7 @@ const BookingStatic = () => {
         { theme: "colored" }
       );
 
-      // Sync real response
+    
       setLocalBookings((prev) =>
         prev.map((b) => (b.book_id === res.book_id ? { ...b, ...res } : b))
       );
@@ -180,9 +180,9 @@ const BookingStatic = () => {
               >
                 <div className="flex flex-col lg:flex-row">
                   
-                  {/* Left Column: Details */}
+                 
                   <div className="p-6 lg:w-3/5 flex flex-col justify-between relative">
-                    {/* Status Pill */}
+                  
                     <div className="absolute top-6 right-6">
                       <StatusPill status={status} />
                     </div>
@@ -251,7 +251,7 @@ const BookingStatic = () => {
                      <MapContainer
                         center={coords}
                         zoom={14}
-                        scrollWheelZoom={false} // Prevent accidental scrolling
+                        scrollWheelZoom={false} 
                         style={{ height: "100%", width: "100%", minHeight: "250px", zIndex: 10 }}
                       >
                         <TileLayer 

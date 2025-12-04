@@ -26,13 +26,13 @@ const RegisterPage = () => {
   const [userType, setUserType] = useState("client");
   const [fieldErrors, setFieldErrors] = useState({});
 
-  // Handle input change
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFieldErrors({ ...fieldErrors, [e.target.name]: "" });
   };
 
-  // Handle submit
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
 

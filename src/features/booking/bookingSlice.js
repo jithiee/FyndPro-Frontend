@@ -111,7 +111,7 @@ const employeeNearbySlice = createSlice({
             state.loading = false;
         },
 
-            // Optional: optimistic local update from UI (not required but convenient)
+            //  optimistic local update from UI 
     optimisticUpdateBookingStatus: (state, action) => {
       const { book_id, status } = action.payload;
       state.userBookings = state.userBookings.map((b) =>

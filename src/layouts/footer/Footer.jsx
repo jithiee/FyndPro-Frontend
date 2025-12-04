@@ -7,15 +7,15 @@ const Footer = () => {
         <div className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            {/* Column 1: Brand & About */}
+          
             <div className="lg:col-span-1">
-              {/* Replace with your actual logo/image */}
+         
               <h3 className="text-2xl font-bold text-white mb-4">ProBook</h3>
               <p className="text-sm text-gray-400 mb-6">
                 Connecting you with top-tier professionals for every project. Simple, reliable, and efficient.
               </p>
               <div className="flex space-x-4">
-                {/* Social Media Icons - Using placeholders */}
+             
                 <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Column 2: For Clients */}
+        
             <div>
               <h3 className="text-blue-500 font-semibold text-lg mb-4 tracking-wider uppercase">For Clients</h3>
               <ul className="space-y-2">
@@ -46,7 +46,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Column 3: For Professionals */}
             <div>
               <h3 className="text-blue-500 font-semibold text-lg mb-4 tracking-wider uppercase">For Professionals</h3>
               <ul className="space-y-2">
@@ -58,7 +57,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Column 4: Newsletter */}
+    
             <div>
               <h3 className="text-blue-500 font-semibold text-lg mb-4 tracking-wider uppercase">Stay Updated</h3>
               <p className="text-sm text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and exclusive offers.</p>
@@ -79,7 +78,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+    
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
@@ -100,135 +99,3 @@ const Footer = () => {
 export default Footer;
 
 
-
-
-
-
-
-
-// import React from 'react';
-
-// const Footer = () => {
-//   return (
-//     <footer className="bg-gray-900 text-white">
-//       {/* Main Footer Content */}
-//       <div className="container mx-auto px-4 py-12">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
-//           {/* Brand Section */}
-//           <div className="lg:col-span-1">
-//             <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-//               WorkEase
-//             </h2>
-//             <p className="text-gray-400 mb-6">
-//               Streamlining employee booking and scheduling for modern workplaces.
-//             </p>
-//             <div className="flex space-x-4">
-//               {['LinkedIn', 'Twitter', 'Instagram', 'GitHub'].map((platform) => (
-//                 <a
-//                   key={platform}
-//                   href="#"
-//                   className="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110 p-2 rounded-full bg-gray-800 hover:bg-gray-700"
-//                   aria-label={platform}
-//                 >
-//                   <div className="w-5 h-5 flex items-center justify-center">
-//                     {/* In a real implementation, you would use actual icons */}
-//                     <span className="text-xs font-semibold">
-//                       {platform.charAt(0)}
-//                     </span>
-//                   </div>
-//                 </a>
-//               ))}
-//             </div>
-//           </div>
-          
-//           {/* Navigation Links */}
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
-//               Navigation
-//             </h3>
-//             <ul className="space-y-2">
-//               {['Home', 'About', 'Services', 'Pricing', 'Contact'].map((item) => (
-//                 <li key={item}>
-//                   <a
-//                     href="#"
-//                     className="text-gray-400 hover:text-white transition-colors duration-300"
-//                   >
-//                     {item}
-//                   </a>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-          
-//           {/* Employee Quick Links */}
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
-//               Employee Resources
-//             </h3>
-//             <ul className="space-y-2">
-//               {['Book Slot', 'Dashboard', 'Support', 'FAQs', 'Resources'].map((item) => (
-//                 <li key={item}>
-//                   <a
-//                     href="#"
-//                     className="text-gray-400 hover:text-white transition-colors duration-300"
-//                   >
-//                     {item}
-//                   </a>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-          
-//           {/* Newsletter Subscription */}
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
-//               Stay Updated
-//             </h3>
-//             <p className="text-gray-400 mb-4">
-//               Subscribe to our newsletter for the latest updates.
-//             </p>
-//             <form className="space-y-3">
-//               <input
-//                 type="email"
-//                 placeholder="Your email address"
-//                 className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-//                 required
-//               />
-//               <button
-//                 type="submit"
-//                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
-//               >
-//                 Subscribe
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-      
-//       {/* Copyright Section */}
-//       <div className="border-t border-gray-800">
-//         <div className="container mx-auto px-4 py-6">
-//           <div className="flex flex-col md:flex-row justify-between items-center">
-//             <p className="text-gray-500 text-sm">
-//               © 2025 WorkEase. All rights reserved.
-//             </p>
-//             <div className="flex space-x-6 mt-4 md:mt-0">
-//               <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
-//                 Privacy Policy
-//               </a>
-//               <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
-//                 Terms of Service
-//               </a>
-//               <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
-//                 Cookie Policy
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;

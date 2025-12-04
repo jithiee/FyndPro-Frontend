@@ -37,7 +37,7 @@ const Maincarousel = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Initialize GSAP animations
+  //  GSAP animations
   useEffect(() => {
     const setupAnimation = () => {
       const slides = slidesRef.current.filter(Boolean);
@@ -45,16 +45,16 @@ const Maincarousel = () => {
       
       if (!slides.length || !container) return;
 
-      // Clear any existing animations
+    
       if (animationRef.current) {
         animationRef.current.kill();
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       }
 
-      // Mobile behavior - vertical stacking
+      
       if (isMobile) {
         const totalHeight = slides.reduce((acc, slide) => {
-          return acc + slide.offsetHeight + 32; // 32px gap between slides
+          return acc + slide.offsetHeight + 32; 
         }, 0);
 
         gsap.set(container, {
@@ -89,7 +89,7 @@ const Maincarousel = () => {
           }
         });
 
-        // Add animations for each slide when it comes into view
+        
         slides.forEach((slide, index) => {
           gsap.fromTo(
             slide.querySelector('img'),
@@ -173,17 +173,17 @@ const Maincarousel = () => {
     }, carouselRef);
 
     return () => {
-      ctx.revert(); // Cleanup all GSAP animations and ScrollTriggers
+      ctx.revert();
     };
   }, [isMobile]);
 
-  // Handle dot navigation click
+
   const goToSlide = (index) => {
     const slides = slidesRef.current.filter(Boolean);
     if (!slides.length) return;
 
     if (isMobile) {
-      // Mobile - vertical scrolling
+
       let scrollPosition = carouselRef.current.offsetTop;
       for (let i = 0; i < index; i++) {
         scrollPosition += slides[i].offsetHeight + 32;
@@ -198,7 +198,7 @@ const Maincarousel = () => {
         ease: "power2.inOut"
       });
     } else {
-      // Desktop - horizontal scrolling
+
       const slideWidth = slides[0].offsetWidth + 16;
       const scrollPosition = index * slideWidth;
       

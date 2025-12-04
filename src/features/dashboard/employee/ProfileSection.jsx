@@ -11,7 +11,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Fix Leaflet default marker issue
+
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -22,7 +22,7 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-// Map Marker component
+// Map Marker 
 const LocationMarker = ({ latLng, setLatLng }) => {
   const [position, setPosition] = useState(
     latLng ? [latLng.latitude, latLng.longitude] : null
@@ -64,7 +64,7 @@ const ProfileSection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [latLng, setLatLng] = useState(null);
 
-  // Fetch profile
+
   useEffect(() => {
     dispatch(fetchEmployeeProfile());
   }, [dispatch]);

@@ -5,8 +5,6 @@ import {
   FiAlertTriangle, FiX, FiActivity 
 } from 'react-icons/fi';
 import { FaRegClock, FaUserCircle } from 'react-icons/fa';
-
-// Import your Redux actions
 import { 
   fetchEmployeeBookings, 
   updateBookingStatus 
@@ -16,7 +14,7 @@ const EmployeeDashboard = () => {
   const dispatch = useDispatch();
   const { userBookings, loading } = useSelector((state) => state.employeeNearby);
 
-  // --- Local State for "Completed" Logic ---
+
   const [showHoursModal, setShowHoursModal] = useState(false);
   const [selectedBookingId, setSelectedBookingId] = useState(null);
   const [hoursInput, setHoursInput] = useState('');
@@ -28,7 +26,7 @@ const EmployeeDashboard = () => {
 
   // --- 1. Handle Status Change from Dropdown ---
   const handleStatusChange = (book_id, newStatus) => {
-    // If user selects "Completed", we must ask for working hours first
+    // If user selects "Completed", we must ask for working hours first-----
     if (newStatus === 'completed') {
       setSelectedBookingId(book_id);
       setHoursInput(''); // reset input
@@ -38,7 +36,7 @@ const EmployeeDashboard = () => {
       dispatch(updateBookingStatus({ 
         book_id, 
         status: newStatus, 
-        working_hours: 0 // Default to 0 if not completed
+        working_hours: 0 
       }));
     }
   };
@@ -74,7 +72,7 @@ const EmployeeDashboard = () => {
     { label: 'Active', value: userBookings.filter(b => b.status === 'in_Progress').length, icon: <FiActivity />, color: 'bg-purple-100 text-purple-600' },
   ];
 
-  // Helper for Status Colors in Dropdown
+  // Helper for Status Colors 
   const getStatusColor = (status) => {
     switch(status) {
       case 'confirmed': return 'text-blue-600 font-semibold';

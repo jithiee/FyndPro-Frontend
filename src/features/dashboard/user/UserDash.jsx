@@ -12,7 +12,6 @@ const UserDash = () => {
     switch (activeTab) {
       case 'dashboard': return <DashboardSectionUser />;
       case 'profile': return <UserProfile />;
-      // case 'bookingview': return <Booking />;
       default: return <DashboardSectionUser />;
     }
   };

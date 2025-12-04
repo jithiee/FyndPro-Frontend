@@ -10,14 +10,13 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // State lifted to parent
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const { user, loading, error, success } = useSelector((state) => state.auth);
 
-  // Effects handled 
+ // Success / Error handling
   useEffect(() => {
     if (success) {
       toast.success("Login successful! Redirecting...");
@@ -37,7 +36,7 @@ const LoginPage = () => {
     }
   }, [success, error, dispatch, navigate, user]);
 
-  // Handlers 
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email || !password) {

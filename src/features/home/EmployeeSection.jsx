@@ -61,7 +61,7 @@ const EmployeeSection = () => {
   return (
     <section className=" px-4 md:px-8 lg:px-16 bg-gradient-to-b ">
       <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
+
         <div className="text-center mb-28">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ const EmployeeSection = () => {
           </motion.p>
         </div>
 
-        {/* Features Grid */}
+      
         <div className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
@@ -96,9 +96,9 @@ const EmployeeSection = () => {
               >
                 <div className="flex flex-col items-center text-center">
 
-                  {/* Icon background wrapper */}
+               
                   <div className="relative inline-flex items-center justify-center w-20 h-20 mb-6">
-                    {/* Blob background */}
+              
                     <svg
                       className="absolute inset-0 w-full h-full"
                       viewBox="0 0 100 100"
@@ -111,22 +111,22 @@ const EmployeeSection = () => {
                       />
                     </svg>
 
-                    {/* Decorative stars */}
+                   
                     <span className="absolute -top-1 -left-1 text-blue-400 text-sm">✦</span>
                     <span className="absolute -bottom-1 -right-1 text-blue-400 text-sm">✦</span>
 
-                    {/* Actual icon */}
+                   
                     <span className="relative z-10 text-blue-600 w-8 h-8 flex items-center justify-center">
                       {feature.icon}
                     </span>
                   </div>
 
-                  {/* Title */}
+                
                   <h3 className="text-lg font-semibold mb-3 text-gray-800 leading-snug">
                     {feature.title}
                   </h3>
 
-                  {/* Description */}
+              
                   <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
                     {feature.description}
                   </p>
@@ -137,7 +137,7 @@ const EmployeeSection = () => {
         </div>
 
 
-        {/* Employee Journey with Unique Design  */}
+     
         <div className="py-20 ">
           
             <motion.h1
@@ -150,7 +150,7 @@ const EmployeeSection = () => {
           </motion.h1>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Unique Timeline line - Gradient/Dotted */}
+       
             <div className="hidden md:block absolute left-1/2 h-full w-1.5 bg-gradient-to-b from-teal-400 to-purple-500 transform -translate-x-1/2 rounded-full"></div>
 
             <div className="space-y-16 md:space-y-24">
@@ -163,17 +163,17 @@ const EmployeeSection = () => {
                   className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
 
-                  {/* Timeline Connector Dot (visible on mobile) */}
+               
                   <div className="md:hidden absolute left-3 top-0 h-full w-0.5 bg-teal-300"></div>
 
 
-                  {/* Step Marker: Unique Dual-Ring Circle */}
+       
                   <div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 
                         rounded-full bg-white border-4 border-purple-500 
                         shadow-xl z-20 
                         mx-auto md:mx-0 
                         transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    {/* Inner Circle with Gradient */}
+         
                     <div className="w-16 h-16 md:w-18 md:h-18 
                           rounded-full 
                           bg-gradient-to-r from-blue-400 to-purple-500 
@@ -184,7 +184,6 @@ const EmployeeSection = () => {
                     </div>
                   </div>
 
-                  {/* Content Card */}
                   <div className={`md:w-5/12 
                           ${index % 2 === 0 ? 'md:ml-20' : 'md:mr-20'} 
                           bg-white 

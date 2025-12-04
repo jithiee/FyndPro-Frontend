@@ -22,7 +22,7 @@ const EmployeeLists = () => {
     (state) => state.employeeNearby
   );
 
-  // 🔍 Search & Filter States
+  //Search & Filter States
   const [searchText, setSearchText] = useState("");
   const [availability, setAvailability] = useState("all");
   const [minRating, setMinRating] = useState(0);
@@ -32,7 +32,7 @@ const EmployeeLists = () => {
     dispatch(fetchEmployeeNearbyLists());
   }, [dispatch]);
 
-  // 🔎 Apply Search & Filters
+  //Apply Search & Filters
   const filteredEmployees = (employeeList || []).filter((emp) => {
     const nameMatch = emp.full_name
       .toLowerCase()
@@ -124,7 +124,7 @@ const EmployeeLists = () => {
                 <option value="available">Available Only</option>
                 <option value="unavailable">Unavailable</option>
               </select>
-              {/* Custom Arrow */}
+             
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400 text-xs">
                 ▼
               </div>
@@ -258,7 +258,7 @@ const EmployeeLists = () => {
                         ? emp.employee_profile.skills
                         : emp.employee_profile?.skills?.split(",") || []
                       )
-                        .slice(0, 3) // Limit to 3 tags to keep card size consistent
+                        .slice(0, 3) 
                         .map((skill, i) => (
                           <span
                             key={i}
@@ -267,14 +267,14 @@ const EmployeeLists = () => {
                             {skill}
                           </span>
                         ))}
-                        {/* Show +more if many skills */}
+                   
                         {(Array.isArray(emp.employee_profile?.skills) || emp.employee_profile?.skills?.split(",").length > 3) && (
                            <span className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-md">...</span>
                         )}
                     </div>
                   </div>
 
-                  {/* Action Button */}
+       
                   <Link to={`/bookingview/${emp.employee_profile?.id}`} className="block mt-auto">
                     <button
                       disabled={!isAvailable}
@@ -305,222 +305,4 @@ const EmployeeLists = () => {
 };
 
 export default EmployeeLists;
-
-
-// import React, { useEffect } from 'react';
-// import {
-//   FaStar,
-//   FaDollarSign,
-//   FaClock,
-//   FaBriefcase,
-//   FaMapMarkerAlt,
-// } from 'react-icons/fa';
-// import { MdVerified } from 'react-icons/md';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchEmployeeNearbyLists } from './bookingSlice';
-// import { Link } from "react-router-dom";
-// import { ArrowLeft, Home } from 'lucide-react';
-
-// const EmployeeLists = () => {
-
-//   const BASE_URL = "http://127.0.0.1:8000";
-
-//   const dispatch = useDispatch();
-//   const { employeeList, loading } = useSelector((state) => state.employeeNearby);
-
-
-//   useEffect(() => {
-
-//     dispatch(fetchEmployeeNearbyLists());
-//   }, [dispatch]);
-
-//   if (loading) return <p className="p-10">Loading nearby employees...</p>;
-//   if (!employeeList || employeeList.length === 0)
-//     return <p className="p-10">No nearby employees found.</p>;
-
-//   return (
-//     <div className="p-10">
-//       <Link to='/'>
-//                  <button className="mb-10 cursor-pointer  group relative inline-flex items-center gap-3 px-8 py-3 bg-slate-900 text-white rounded-lg overflow-hidden transition-all hover:pr-10">
-//         {/* Background Gradient Hover */}
-//         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-
-//         {/* Content */}
-//         <span className="relative z-10 flex items-center gap-2 font-medium">
-//           <ArrowLeft size={18} />
-//           Back to home
-//         </span>
-
-//         {/* Hidden Decorator appearing on hover */}
-//         <span className="absolute right-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-10">
-//           •
-//         </span>
-//       </button>
-
-//       </Link>
-
-
-
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
-
-//         {employeeList.map((emp, index) => (
-//           <div
-//             key={index}
-//             className="relative max-w-xs bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition duration-300"
-//           >
-
-//             <div
-//               className={`absolute top-4 right-4 text-xs font-semibold px-2 py-1 rounded-full flex items-center 
-//               ${emp.employee_profile?.available
-//                   ? "bg-green-100 text-green-800"
-//                   : "bg-red-100 text-red-800"
-//                 }`}
-//             >
-//               <span
-//                 className={`w-2 h-2 rounded-full mr-2 
-//                 ${emp.employee_profile?.available ? "bg-green-500" : "bg-red-500"}
-//               `}
-//               ></span>
-
-//               {emp.employee_profile?.available ? "Available" : "Unavailable"}
-//             </div>
-
-
-//             {/* Header */}
-//             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 text-center">
-//               <div className="relative inline-block">
-//                 <Link to={`/employeedashboard/${emp.id}`}>
-//                   <img
-//                     src={
-//                       emp.profile_image
-//                         ? `${BASE_URL}${emp.profile_image}`
-//                         : "https://randomuser.me/api/portraits/men/75.jpg"
-//                     }
-//                     alt={emp.full_name}
-//                     className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md mx-auto cursor-pointer"
-//                   />
-//                 </Link>
-
-
-//                 <MdVerified className="absolute bottom-0 right-0 text-blue-500 bg-white rounded-full p-1 text-lg" />
-//               </div>
-
-//               {/* Rating */}
-//               <div className="mt-3 flex justify-center items-center">
-//                 <div className="flex items-center bg-white px-2 py-1 rounded-full shadow-sm">
-//                   {[...Array(5)].map((_, i) => (
-//                     <FaStar
-//                       key={i}
-//                       className={`text-sm ${i < emp.employee_profile?.average_rating
-//                         ? 'text-yellow-400'
-//                         : 'text-gray-300'
-//                         }`}
-//                     />
-//                   ))}
-//                   <span className="ml-1 text-xs font-semibold text-gray-700">
-//                     {emp.employee_profile?.average_rating || 0}
-//                   </span>
-//                 </div>
-//               </div>
-
-//               {/* Name */}
-//               <div className="mt-4">
-//                 <h2 className="text-xl font-bold text-gray-900">{emp.full_name}</h2>
-//                 <p className="text-sm text-gray-600">{emp.employee_profile?.title || "Worker"}</p>
-//               </div>
-//             </div>
-
-//             {/* Body */}
-//             <div className="p-6">
-//               <div className="grid grid-cols-2 gap-3 mb-4">
-//                 <div className="flex items-center text-sm text-gray-600">
-//                   <FaBriefcase className="text-blue-500 mr-2" />
-//                   <span>{emp.employee_profile?.experience || 0} yrs</span>
-//                 </div>
-//                 {/* <div className="flex items-center text-sm text-gray-600">
-//                   <FaDollarSign className="text-green-500 mr-2" />
-//                   <span>₹{emp.employee_profile?.hourly_rate || 0}/hr</span>
-//                 </div> */}
-//                 <div className="flex items-center text-sm text-gray-600">
-//                   <span className="text-green-500 mr-2 text-lg">₹</span>
-//                   <span>{emp.employee_profile?.hourly_rate || 0}/hr</span>
-//                 </div>
-
-//                 <div className="flex items-center text-sm text-gray-600">
-//                   <FaClock className="text-purple-500 mr-2" />
-//                   <span>Flexible Hours</span>
-//                 </div>
-//                 <div className="flex items-center text-sm text-gray-600">
-//                   <FaMapMarkerAlt className="text-red-500 mr-2" />
-//                   <span>{emp.location}</span>
-//                 </div>
-//               </div>
-
-//               {/* Skills */}
-//               <div className="mb-6">
-//                 <h3 className="text-xs font-semibold text-gray-500 uppercase mb-2">Skills</h3>
-//                 {/* <div className="flex flex-wrap gap-2">
-//                   {(emp.employee_profile?.skills || []).map((skill, i) => (
-//                     <span
-//                       key={i}
-//                       className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full"
-//                     >
-//                       {skill}
-//                     </span>
-//                   ))}
-//                 </div> */}
-
-//                 <div className="flex flex-wrap gap-2">
-//                   {(Array.isArray(emp.employee_profile?.skills)
-//                     ? emp.employee_profile.skills
-//                     : emp.employee_profile?.skills?.split(",") || []
-//                   ).map((skill, i) => (
-//                     <span
-//                       key={i}
-//                       className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full"
-//                     >
-//                       {skill}
-//                     </span>
-//                   ))}
-//                 </div>
-
-//               </div>
-
-//               {/* Button */}
-//               {/* <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-md flex items-center justify-center gap-2"
-//               disabled={!emp.employee_profile?.available}
-//               >
-//                 Book Now
-//               </button> */}
-//               <Link to={`/bookingview/${emp.employee_profile?.id}`}>
-
-
-//                 <button
-//                   className={`w-full px-4 py-2 rounded-lg text-sm font-medium shadow-md flex items-center justify-center gap-2 text-white 
-//                    ${emp.employee_profile?.available
-//                       ? "bg-blue-600 hover:bg-blue-700 cursor-pointer"
-//                       : "bg-gray-400 cursor-not-allowed opacity-50"
-//                     }`}
-//                   disabled={!emp.employee_profile?.available}
-//                 >
-//                   Book Now
-//                 </button>
-//               </Link>
-
-//             </div>
-//           </div>
-//         ))}
-
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default EmployeeLists;
-
-
-
-
-
-
 

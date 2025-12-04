@@ -8,7 +8,6 @@ import { fetchUserProfile, updateUserProfile } from "../userprofileSlice";
 import { ToastContainer, toast } from "react-toastify";
 
 
-// Fix Leaflet icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:

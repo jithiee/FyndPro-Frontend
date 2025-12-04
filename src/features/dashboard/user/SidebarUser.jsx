@@ -23,7 +23,7 @@ const SidebarUser = ({ activeTab, setActiveTab, mobileOpen, setMobileOpen }) => 
   ];
 
   const handleLogout = () => {
-    // Implement logout logic here
+    //need to  implement logout logic here
     console.log('User logged out');
   };
 

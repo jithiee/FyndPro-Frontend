@@ -22,9 +22,7 @@ const PaymentOptions = ({ booking }) => {
         <h3 className="text-3xl font-bold text-blue-600">₹{booking?.amount}</h3>
       </div>
 
-      {/* --- PAYMENT OPTIONS --- */}
-
-      {/* UPI OPTION */}
+    
       <div
         onClick={() => setMethod("upi")}
         className={`border rounded-xl p-4 flex justify-between items-center cursor-pointer 

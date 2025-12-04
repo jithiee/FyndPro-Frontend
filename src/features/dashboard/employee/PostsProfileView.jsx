@@ -50,12 +50,12 @@ const PostsProfileView = () => {
     }
   }, [dispatch, profile]);
 
-  // Selector for comments of selected post (reads from Redux store)
+  // Selector for comments of selected post 
   const commentsForSelectedPost = useSelector((state) =>
     selectedPost ? state.profile.commentsByPost[selectedPost.id] || [] : []
   );
 
-  // Time ago helper
+  
   const timeAgo = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -97,7 +97,6 @@ const PostsProfileView = () => {
   const handleImageClick = (post) => {
     setSelectedPost(post);
     setIsModalOpen(true);
-    // load comments for that post from backend -> redux
     dispatch(fetchCommentsByPostId(post.id));
   };
 
@@ -108,15 +107,13 @@ const PostsProfileView = () => {
     setAddingComment(false);
   };
 
-  // Extract a safe display name from the comment object
+  
   const getCommentUserName = (comment) => {
-    // backend may provide either "user" object, "user_name" or "username"
     if (!comment) return "User";
     if (comment.user?.username) return comment.user.username;
     if (comment.user?.full_name) return comment.user.full_name;
     if (comment.user_name) return comment.user_name;
     if (comment.username) return comment.username;
-    // fallback to profile name (owner of the profile page)
     return comment.user || "User";
   };
 
@@ -127,20 +124,15 @@ const PostsProfileView = () => {
     setAddingComment(true);
 
     try {
-      // dispatch the thunk that calls POST /posts/:pk/comments/
       await dispatch(addCommentToPost({ postId: selectedPost.id, text })).unwrap();
-
-      // clear input (the Redux reducer will have added the comment to commentsByPost)
       setCommentText("");
     } catch (err) {
       console.error("Failed to post comment:", err);
-      // optionally show toast or error UI
     } finally {
       setAddingComment(false);
     }
   };
 
-  // keyboard: send comment on Enter (Shift+Enter for newline)
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();

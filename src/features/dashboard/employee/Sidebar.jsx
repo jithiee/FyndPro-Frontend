@@ -4,9 +4,8 @@ import {
   FiCalendar, FiDollarSign, FiBell, FiSettings,
   FiMenu, FiX, FiLogOut, FiChevronRight, FiAward
 } from 'react-icons/fi';
-
 import { useDispatch } from "react-redux";
-import { logout } from "../../authentication/auth/authSlice";  // <-- update path correctly
+import { logout } from "../../authentication/auth/authSlice";  
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/plogo.png"
 
